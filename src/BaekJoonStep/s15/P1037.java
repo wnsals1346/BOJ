@@ -18,8 +18,8 @@ public class P1037 {
         }
         Arrays.sort(factor);
         int ans;
-        if(n%2==0) ans = factor[0]*factor[n-1];
-        else ans = factor[n/2]*factor[n/2];
+        if (n % 2 == 0) ans = factor[0] * factor[n - 1];
+        else ans = factor[n / 2] * factor[n / 2];
         System.out.println(ans);
     }
 }

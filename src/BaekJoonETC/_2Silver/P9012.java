@@ -12,22 +12,22 @@ public class P9012 {
         StringBuilder sb = new StringBuilder();
         String str;
         int i;
-       while(n-->0) {
-           str = br.readLine();
-           i = 1;
-           while(i<str.length()) {
-               if(str.charAt(i-1)==40 && str.charAt(i)==41) {
-                   str = str.substring(0,i-1)+str.substring(i+1);
-                   i=1;
-               } else {
-                   i++;
-               }
+        while (n-- > 0) {
+            str = br.readLine();
+            i = 1;
+            while (i < str.length()) {
+                if (str.charAt(i - 1) == 40 && str.charAt(i) == 41) {
+                    str = str.substring(0, i - 1) + str.substring(i + 1);
+                    i = 1;
+                } else {
+                    i++;
+                }
 
-           }
-           if(str.equals("")) sb.append("YES").append("\n");
-           else sb.append("NO").append("\n");
+            }
+            if (str.equals("")) sb.append("YES").append("\n");
+            else sb.append("NO").append("\n");
 
-       }
+        }
 
         System.out.println(sb);
 
