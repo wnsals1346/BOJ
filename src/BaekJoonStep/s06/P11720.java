@@ -1,5 +1,5 @@
 package BaekJoonStep.s06;
-
+//https://www.acmicpc.net/problem/11720 - 숫자의 합
 import java.util.Scanner;
 
 public class P11720 {
