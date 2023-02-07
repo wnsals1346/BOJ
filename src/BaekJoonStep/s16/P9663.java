@@ -39,6 +39,7 @@ public class P9663 {
         for (int i = 0; i < idx; i++) {
             if(visit[i]==val) return false; // check column
             if(Math.abs(i-idx)==Math.abs(visit[i]-val)) return false; //check diagonal
+            //if(i-idx==visit[i]-val || i-idx==val-visit[i]) return false; //Same code without Math.abs
         }
         return true;
     }

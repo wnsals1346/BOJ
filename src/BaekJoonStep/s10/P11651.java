@@ -32,21 +32,37 @@ public class P11651 {
         quickSort(arr, pivot+1, right);
     }
     static int partition(int[][] arr, int left, int right) {
-        int p = (int) (Math.random()*(right-left+1)+left);
-        int i = left-1, j = left;
-        for(;j<right;j++) {
+        int p = (int) (Math.random()*(right+1-left)+left);
+        int i = left-1;
+        int j = left;
+        for(;j<=right;j++) {
             if(arr[j][1]<arr[p][1]) {
                 i++;
-                twoDiSwap(arr, i, j);
-            } else if (arr[j][1]==arr[p][1]) {
-                if(arr[j][0]<=arr[p][0]) {
+                if(i==p) {
                     i++;
+                }
+                if(i!=j) {
                     twoDiSwap(arr, i, j);
+                }
+
+            } else if (arr[j][1]==arr[p][1]) {
+                if(arr[j][0]<arr[p][0]) {
+                    i++;
+                    if(i==p) i++;
+                    if(i!=j) {
+                        twoDiSwap(arr, i, j);
+                    }
                 }
             }
         }
-        twoDiSwap(arr, i+1, p);
-        return p;
+        if(i<p) {
+            twoDiSwap(arr, i+1, p);
+            return i+1;
+        }
+        else {
+            twoDiSwap(arr, i, p);
+            return i;
+        }
     }
     static void twoDiSwap(int[][] arr, int i, int j) {
         int temp;
