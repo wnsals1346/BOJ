@@ -18,17 +18,17 @@ public class P1932 {
             st = new StringTokenizer(br.readLine());
             for (int j = i*(i+1)/2; j <=i*(i+1)/2+i ; j++) {
                 dp[j] = Integer.parseInt(st.nextToken());
-                if(j==(i*(i+1)/2)) {
+                if(j==(i*(i+1)/2)) { //각 줄의 첫 숫자 선택지 X
                     dp[j] += dp[j-i];
-                } else if (j==(i*(i+1)/2+i)) {
+                } else if (j==(i*(i+1)/2+i)) { //각 줄의 마지막 숫자 선택지 X
                     dp[j] += dp[j-(i+1)];
                 } else {
-                    dp[j] += Math.max(dp[j-i],dp[j-(i+1)]);
+                    dp[j] += Math.max(dp[j-i],dp[j-(i+1)]); //부모중 높은 숫자 택
                 }
             }
         }
         int max = 0;
-        for (int i = dp.length-n; i < dp.length; i++) {
+        for (int i = dp.length-n; i < dp.length; i++) { // 마지막줄 중에 최댓값 찾기
             max = Math.max(dp[i],max);
         }
         System.out.println(max);
