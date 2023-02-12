@@ -1,9 +1,11 @@
 package BaekJoonETC._2Silver;
 //https://www.acmicpc.net/problem/14501 - 퇴사
+//15486 - 퇴사2
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class P14501 {
@@ -23,6 +25,9 @@ public class P14501 {
                     dp[i][j] = Math.max(dp[i-1][j], pay+dp[i-1][i-1]);
                 }
             }
+        }
+        for (int i = 0; i < dp.length; i++) {
+            System.out.println(Arrays.toString(dp[i]));
         }
         System.out.println(dp[n][n]);
     }

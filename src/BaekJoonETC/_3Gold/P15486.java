@@ -1,12 +1,13 @@
-package BaekJoonETC._2Silver;
-//https://www.acmicpc.net/problem/14501 - 퇴사
+package BaekJoonETC._3Gold;
+//https://www.acmicpc.net/problem/15486 - 퇴사 2
+//14501 - 퇴사
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class P14501_better {
+public class P15486 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
