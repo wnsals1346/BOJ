@@ -16,6 +16,7 @@ public class P10814 {
             this.age = age;
             this.name = name;
         }
+
         @Override
         public int compareTo(Member m) {
             if(this.age<m.age) return -1;
@@ -23,9 +24,7 @@ public class P10814 {
             else return 1;
         }
         @Override
-        public String toString() {
-            return age+" "+name+"\n";
-        }
+        public String toString() {return age+" "+name+"\n";}
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -41,7 +40,6 @@ public class P10814 {
         for (Member m : marr) {
             sb.append(m);
         }
-
         System.out.println(sb);
     }
 }
