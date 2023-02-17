@@ -31,7 +31,7 @@ public class P12015 {
                     return;
                 } else if(n<dp.get(mid)) {
                     right = mid-1;
-                } else if (dp.get(mid)<n) {
+                } else {
                     left = mid+1;
                 }
             }
