@@ -13,20 +13,14 @@ public class P2468 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        map = new int[n+2][n+2];
-        visited = new boolean[n+2][n+2];
+        map = new int[n][n];
+        visited = new boolean[n][n];
         StringTokenizer st;
         int maxHeight = 0;
-        for (int i = 0; i < n+2; i++) {
-            for (int j = 0; j < n+2; j++) {
-                if(i==0||j==0||i==n+1||j==n+1) {
-                    map[i][j] = 100;
-                }
-            }
-        }
-        for (int i = 1; i < n+1; i++) {
+
+        for (int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 1; j < n+1; j++) {
+            for (int j = 0; j < n; j++) {
                 map[i][j] = Integer.parseInt(st.nextToken());
                 maxHeight = Math.max(maxHeight,map[i][j]);
             }
@@ -35,14 +29,14 @@ public class P2468 {
         int res = 0;
         for (int height = 0; height < maxHeight; height++) {
             int cnt = 0;
-            for (int i = 1; i < n+1; i++) {
-                for (int j = 1; j < n+1; j++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     if(visited[i][j] || map[i][j]<=height) continue;
                     dfs(i,j,height);
                     cnt++;
                 }
             }
-            visited = new boolean[n+2][n+2];
+            visited = new boolean[n][n];
             res = Math.max(res,cnt);
         }
         System.out.println(res);
@@ -61,16 +55,16 @@ public class P2468 {
             return;
         } else {
             visited[x][y] = true;
-            if(y!=n) {
+            if(y!=n-1) {
                 dfs(x,y+1,h);
             }
-            if(x!=n) {
+            if(x!=n-1) {
                 dfs(x+1,y,h);
             }
-            if(y!=1) {
+            if(y!=0) {
                 dfs(x,y-1,h);
             }
-            if(x!=1) {
+            if(x!=0) {
                 dfs(x-1,y,h);
             }
         }
