@@ -1,4 +1,5 @@
 package BaekJoonETC._2Silver;
+//https://www.acmicpc.net/problem/2644 - 촌수계산
 
 import java.io.BufferedReader;
 import java.io.IOException;
