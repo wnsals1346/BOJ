@@ -1,4 +1,4 @@
-package BaekJoonStep.s27;
+package BaekJoonStep.s28;
 //https://www.acmicpc.net/problem/2606 - 바이러스
 
 import java.io.BufferedReader;
