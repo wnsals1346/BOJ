@@ -1,4 +1,4 @@
-package BaekJoonETC._1Bronze;
+package BaekJoonStep.s09;
 //https://www.acmicpc.net/problem/11653 - 소인수분해
 
 import java.util.Scanner;
