@@ -1,4 +1,4 @@
-package BaekJoonETC._2Silver;
+package BaekJoonStep.s09;
 //https://www.acmicpc.net/problem/9020 - 골드바흐의 추측
 
 import java.util.Scanner;

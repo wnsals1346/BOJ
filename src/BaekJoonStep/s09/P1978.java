@@ -1,4 +1,4 @@
-package BaekJoonETC._2Silver;
+package BaekJoonStep.s09;
 //https://www.acmicpc.net/problem/1978 - 소수 찾기
 
 import java.io.*;

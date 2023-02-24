@@ -1,4 +1,4 @@
-package BaekJoonETC._2Silver;
+package BaekJoonStep.s09;
 //https://www.acmicpc.net/problem/2581 - 소수
 
 import java.util.Scanner;
