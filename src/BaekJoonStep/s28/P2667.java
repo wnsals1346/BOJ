@@ -20,6 +20,7 @@ public class P2667 {
             }
         }
 
+
         Queue<Cord> q = new LinkedList<>();
         int count = 0;
         ArrayList<Integer> res = new ArrayList<>();

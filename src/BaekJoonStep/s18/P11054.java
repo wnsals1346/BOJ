@@ -22,16 +22,12 @@ public class P11054 {
         int max = 0;
         for (int i = 0; i < arr.length; i++) {
             asc(arr[i]);
-            for (int j = i+1; j < arr.length; j++) {
+            for (int j = i; j < arr.length; j++) {
                 desc(arr[j]);
             }
-            if(!dp_asc.isEmpty()&&!dp_desc.isEmpty()) {
-                if(dp_asc.get(dp_asc.size()-1)==dp_desc.get(0)) {
-                    dp_desc.remove(0);
-                }
-            }
 
-            max = Math.max(max,dp_asc.size()+dp_desc.size());
+
+            max = Math.max(max,dp_asc.size()+dp_desc.size()-1);
             System.out.println(dp_asc+" "+dp_desc);
             dp_desc.clear();
         }

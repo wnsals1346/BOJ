@@ -18,10 +18,7 @@ public class P2206_timeout {
         Y = Integer.parseInt(st.nextToken());
         map = new int[X][Y];
         for (int i = 0; i < X; i++) {
-            int[] line = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
-            for (int j = 0; j < Y; j++) {
-                map[i][j] = line[j];
-            }
+            map[i] = Arrays.stream(br.readLine().split("")).mapToInt(Integer::parseInt).toArray();
         }
         dfs(0, 0, false, 1);
         if(min==Integer.MAX_VALUE) {
