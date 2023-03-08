@@ -11,7 +11,6 @@ public class P11729 {
         System.out.println(sb);
     }
     public static int hanoi(int n,int start, int end, int mid) {
-        int cnt = 0;
         if(n==1) {
             return move(start,end);
         }
