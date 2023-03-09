@@ -30,38 +30,24 @@ public class P13549_noPath {
             if(cur.v == end) break;
             if(d[cur.v]<cur.w) continue;
 
-            if(cur.v==0 || cur.v==point-1) {
-                if(cur.v==0) {
-                    if(d[cur.v+1] > cur.w) {
-                        d[cur.v+1] = cur.w+1;
-                        pq.add(new Node(cur.v+1, cur.w+1));
-                    }
-                } else {
-                    if(d[cur.v-1] > cur.w) {
-                        d[cur.v-1] = cur.w+1;
-                        pq.add(new Node(cur.v-1, cur.w+1));
-                    }
-                }
-
-            } else {
-                if(cur.v*2<point) {
-                    int next = cur.v*2;
-                    if(d[next] > cur.w) {
-                        d[next] = cur.w;
-                        pq.add(new Node(next, cur.w));
-                    }
-                }
-                if(d[cur.v-1] > cur.w) {
-                    d[cur.v-1] = cur.w+1;
-                    pq.add(new Node(cur.v-1, cur.w+1));
-                }
+            if(cur.v+1<point) {
                 if(d[cur.v+1] > cur.w) {
                     d[cur.v+1] = cur.w+1;
                     pq.add(new Node(cur.v+1, cur.w+1));
                 }
-
             }
-
+            if(cur.v-1>=0) {
+                if(d[cur.v-1] > cur.w) {
+                    d[cur.v-1] = cur.w+1;
+                    pq.add(new Node(cur.v-1, cur.w+1));
+                }
+            }
+            if(cur.v*2<point) {
+                if(d[cur.v*2] > cur.w) {
+                    d[cur.v*2] = cur.w;
+                    pq.add(new Node(cur.v*2, cur.w));
+                }
+            }
         }
 
         System.out.println(d[end]);
