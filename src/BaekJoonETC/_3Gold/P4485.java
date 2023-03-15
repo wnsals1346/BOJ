@@ -25,6 +25,7 @@ public class P4485 {
                     dist[i][j] = Integer.MAX_VALUE;
                 }
             }
+
             dist[0][0] = map[0][0];
 
             PriorityQueue<Cord> pq = new PriorityQueue<>();
