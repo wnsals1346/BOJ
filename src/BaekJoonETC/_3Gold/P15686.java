@@ -4,23 +4,22 @@ package BaekJoonETC._3Gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
 public class P15686 {
-    static int N, M;
-    static int[] shop;
-    static int[][] map;
+    static int N, M, ans;
+    static Cord[] shop;
+    static int[][] map, visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
-        shop = new int[M];
+        ans = Integer.MAX_VALUE;
+        shop = new Cord[M];
         map = new int[N][N];
-        PriorityQueue<Chicken> pq = new PriorityQueue<>();
+        visited = new int[N][N];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
@@ -28,64 +27,54 @@ public class P15686 {
                 map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if(map[i][j]==2) pq.add(calHtoS(i,j));
+        dfs(0);
+        System.out.println(ans);
+    }
+    public static void dfs(int lvl) {
+        if(lvl==M) {
+            ans = Math.min(ans, calc());
+        } else {
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    if(map[i][j]==2 && visited[i][j]==0) {
+                        shop[lvl] = new Cord(i, j);
+                        visited[i][j] = 1;
+                        dfs(lvl+1);
+                        visited[i][j] = 0;
+                    }
+                }
             }
         }
+    }
 
-        while(pq.size()>M) {
-            Chicken cur = pq.poll();
-            map[cur.x][cur.y] = 0;
-        }
-        for (int i = 0; i < map.length; i++) {
-            System.out.println(Arrays.toString(map[i]));
-        }
-        int dist = 0;
+    public static int calc() {
+        int res = 0;
+
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if(map[i][j]==1) {
-                    dist += calStoH(i,j);
+                    int min = 100;
+                    for (Cord c : shop) {
+                         min = Math.min(min, Math.abs(i-c.x) + Math.abs(j-c.y));
+                    }
+
+                    res += min;
                 }
             }
         }
-        System.out.println(dist);
-    }
-    public static Chicken calHtoS(int x, int y) {
-        int dist = 0;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if(map[i][j]==1) {
-                    dist += Math.abs(x-i)+Math.abs(y-j);
-                }
-            }
-        }
-        return new Chicken(x,y,dist);
-    }
-    public static int calStoH(int x, int y) {
-        int dist = Integer.MAX_VALUE;
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if(map[i][j]==2) {
-                    dist = Math.min(dist,Math.abs(x-i)+Math.abs(y-j));
-                }
-            }
-        }
-        return dist;
+        return res;
     }
 
-    public static class Chicken implements Comparable<Chicken> {
-        int x,y,d;
+    public static class Cord {
+        int x,y;
 
-        public Chicken(int x, int y, int d) {
+        public Cord(int x, int y) {
             this.x = x;
             this.y = y;
-            this.d = d;
         }
-
         @Override
-        public int compareTo(Chicken o) {
-            return o.d - this.d;
+        public String toString() {
+            return "["+this.x+", "+this.y+"]";
         }
     }
 }
